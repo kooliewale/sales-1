@@ -2,173 +2,277 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CoolieWale ERP</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>CodePen - Sales Dashboard</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h1> CoolieWale ERP Software </h1>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-<p>CoolieWale ERP (Enterprise Resource Planning Software) </p>
+<!-- Dashboard Wrapper -->
+<div class="dashboard">
+  <!-- Sidebar -->
+  <aside class="sidebar scrollbar__style">
+    <h2 class="sidebar__title">Sales<span>_Dashboard</span></h2>
+    <div class="sidebar__profile">
+      <img src="https://assets.codepen.io/1610873/aiony-haust-3TLl_97HNJo-unsplash.jpg" alt="Unplash - Aiony Haust" class="sidebar__profile__img" />
+      <div class="sidebar__profile__data">
+        <p class="sidebar__profile__data__name">Sarah J.</p>
+        <i class="fa-solid fa-right-from-bracket sidebar__profile__data__icon"></i>
+      </div>
+    </div>
+    <nav class="sidebarNav">
+      <ul class="sidebarNav__list">
+        <li class="sidebarNav__item">
+          <a href="#" class="sidebarNav__link sidebarNav__link--active">
+            <i class="sidebarNav__icon fa-solid fa-gear"></i>
+            <span class="sidebarNav__text">SETTINGS</span>
+            <span class="sidebarNav__switch" data-sidebar="settings">+</span>
+          </a>
+          <ul class="submenu" data-sidebar="settings">
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Profile</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Dashboard</a>
+            </li>
+          </ul>
+          <div class="sidebarNav__divider"></div>
+        </li>
+        <li class="sidebarNav__item">
+          <a href="#" class="sidebarNav__link sidebarNav__link--active">
+            <i class="fa-solid fa-chart-column sidebarNav__icon"></i>
+            <span class="sidebarNav__text">SALES</span>
+            <span class="sidebarNav__switch" data-sidebar="sales">+</span>
+          </a>
+          <ul class="submenu" data-sidebar="sales">
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Leads</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Statistics</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Products</a>
+            </li>
+          </ul>
+          <div class="sidebarNav__divider"></div>
+        </li>
+        <li class="sidebarNav__item">
+          <a href="#" class="sidebarNav__link sidebarNav__link--active">
+            <i class="fa-solid fa-user-group sidebarNav__icon sidebarNav__iconSizeCustomer"></i>
+            <span class="sidebarNav__text">CUSTOMER</span>
+            <span class="sidebarNav__switch" data-sidebar="customer">+</span>
+          </a>
+          <ul class="submenu closed-by-default" data-sidebar="customer">
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">New Customer</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Highest Sales</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Region</a>
+            </li>
+          </ul>
+          <div class="sidebarNav__divider"></div>
+        </li>
+        <li class="sidebarNav__item">
+          <a href="#" class="sidebarNav__link sidebarNav__link--active">
+            <i class="fa-solid fa-layer-group sidebarNav__icon sidebarNav__iconSizeChannels"></i>
+            <span class="sidebarNav__text">CHANNEL</span>
+            <span class="sidebarNav__switch" data-sidebar="channels">+</span>
+          </a>
+          <ul class="submenu closed-by-default" data-sidebar="channels">
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Field Sales</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Customer Hotline</a>
+            </li>
+            <li class="submenu__item">
+              <a href="#" class="submenu__link">Online</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="sidebar__button">
+        <span>Download</span>
+        <i class="fa-solid fa-download"></i>
+      </div>
+    </nav>
+  </aside>
+  <!-- Dashboard Content -->
+  <main class="dashboard__content">
+    <h3 class="dashboard__content__title">Sales Dashboard Sumary</h3>
+    <div class="dashboard__grid">
+      <!-- ROW ONE -->
+      <label class="dashboard__grid__selectLabel grid__stagger" id="statistic-time">
+        Auto range:
+        <select class="dashboard__grid__selectLabel__select" name="time">
+          <option value="month">Month</option>
+          <option value="year">Year</option>
+          <option value="allTime">All</option>
+        </select>
+      </label>
+      <label class="dashboard__grid__selectLabel grid__stagger" id="statistic-region">
+        Region:
+        <select class="dashboard__grid__selectLabel__select" name="region" style="margin-top: 10px">
+          <option value="usa">USA</option>
+          <option value="emea">EMEA</option>
+          <option value="allRegions">All regions</option>
+        </select>
+      </label>
+      <label class="dashboard__grid__selectLabel grid__stagger" id="statistic-channel">Sales channel:
+        <select class="dashboard__grid__selectLabel__select" name="channel">
+          <option value="allChannel">All Channels</option>
+          <option value="field">Field Sales</option>
+          <option value="web">Online</option>
+          <option value="hotline">Customer Hotline</option>
+        </select>
+      </label>
+      <div class="sales__data grid__stagger" id="salesData">
+        <div class="sales__data__profit">
+          <span class="sales__data__profit__icon">
+            <i class="fa-solid fa-coins"></i>
+          </span><span class="sales__data__profit__text">Profit</span><span class="sales__data__profit__result">+ 7%</span>
+        </div>
+        <div class="sales__data__margin">
+          <span class="sales__data__margin__icon"><i class="fa-solid fa-percent"></i></span><span class="sales__data__margin__text">Margin</span><span class="sales__data__margin__result">+ 14%</span>
+        </div>
+      </div>
 
-<h3>CoolieWale Sales </h3> 
+      <!-- ROW TWO SALES FIGURES, MESSAGE -->
+      <div class="dashboard__grid__salesFigures card-purple grid__stagger" id="totalCustomer">
+        <h5 class="dashboard__grid__salesFigures__title">Total Sales</h5>
+        <p class="dashboard__grid__salesFigures__salesValues"><span class="animatedCount">91.528 </span>$</p>
+        <p class="dashboard__grid__salesFigures__winOrLoose">14%<i class="fa-solid fa-thumbs-up"></i></p>
+        <p class="dashboard__grid__salesFigures__period">vs previous 30 days days</p>
+      </div>
+      <div class="dashboard__grid__salesFigures card-blue grid__stagger" id="orders">
+        <h5 class="dashboard__grid__salesFigures__title">Orders per Month</h5>
+        <p class="dashboard__grid__salesFigures__salesValues"><span class="animatedCount">136</span></p>
+        <p class="dashboard__grid__salesFigures__winOrLoose">7% <i class="fa-solid fa-thumbs-down"></i></p>
+        <p class="dashboard__grid__salesFigures__period">vs previous 30 days days</p>
+      </div>
+      <div class="dashboard__grid__salesFigures card-purple grid__stagger" id="salesVolume">
+        <h5 class="dashboard__grid__salesFigures__title">Average Contract</h5>
+        <p class="dashboard__grid__salesFigures__salesValues">673</p>
+        <p class="dashboard__grid__salesFigures__winOrLoose">12% <i class="fa-solid fa-thumbs-up"></i></p>
+        <p class="dashboard__grid__salesFigures__period">vs previous 30 days days</p>
+      </div>
+      <div class="dashboard__grid__salesFigures card-blue grid__stagger" id="increase">
+        <h5 class="dashboard__grid__salesFigures__title">Growth Rate</h5>
+        <p class="dashboard__grid__salesFigures__salesValues dashboard__grid__salesFigures__growth"><span class="animatedCount">12%</span></p>
+      </div>
+      <div class="message__center grid__stagger" id="messageBox">
+        <h3 class="message__center__title">Messages:</h3>
+        <div class="message__center__container scrollbar__style">
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Agnes.jpg" alt="Unsplash - Christina @ wocintechchat.com" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Agnes (Customer Support)</span>
+              <span class="message__center__message__timeDate">Today 18:17 am</span>
+              <span class="message__center__message__text">Please call Jonathan James from Fluid back. He has an urgent query regarding his order</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Jonny.jpg" alt="Unsplash - Ransford Quaye" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Jonny (Sales Support)</span>
+              <span class="message__center__message__timeDate">Today 15:33 pm</span>
+              <span class="message__center__message__text">The order from Dubidor Inc. is awaiting approval. Please check the details again and call back</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Amy.jpg" alt="Unsplash - Joel Mott" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Amy (Field Sales)</span>
+              <span class="message__center__message__timeDate">Today 16:23 pm</span>
+              <span class="message__center__message__text">The customer Rohmeyer would like an appointment with both of us. Please call back</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Julia.jpg" alt="Unsplash - Jake Nackos" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Julia (Field Sales)</span>
+              <span class="message__center__message__timeDate">Yesterday 10:37 am</span>
+              <span class="message__center__message__text">The customer Amsora received its advertising subsidy in July. I sent him the payment receipt</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Jason.jpg" alt="Unsplash - Albert Dera" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Jason (Customer Support)</span>
+              <span class="message__center__message__timeDate">Yesterday 08:03 am</span>
+              <span class="message__center__message__text">
+                The customer Appencell has canceled the appointment for August. He asks to call back to set a new appointment</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/Luna.jpg" alt="Unsplash - Christopher Campbell" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Luna (Field Sales)</span>
+              <span class="message__center__message__timeDate">14.11 - 14:49 pm</span>
+              <span class="message__center__message__text">Hi Julia, haven't heard from you in a long time. If you have time and feel like it, let's have lunch later?</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+          <div class="message__center__line"></div>
+          <div class="message__center__wrapper">
+            <img src="https://assets.codepen.io/1610873/christopher.jpg" alt="Unsplash - Radu Florin" class="message__center__img">
+            <p class="message__center__message">
+              <span class="message__center__message__from">Christopher (Accounting)</span>
+              <span class="message__center__message__timeDate">07.11 - 11:15 am</span>
+              <span class="message__center__message__text">
+                I have a question about Novatil Invest and the discount granted for the two invoices from December</span>
+            </p>
+            <button class="message__center__message__question">Reply</button>
+            <button class="message__center__message__done">Done</button>
+          </div>
+        </div>
+      </div>
 
-<img src = "https://www.cooliewale.in/logo192.png" width=10%>
-
-<h3>  </h3>
-
-<ul>
-  <li class="module" > <b> SD: </b> Sales and Distribution</li>
-  <ul> <em> Submodules </em>: 
-    <li> Sales order management </li>
-    <li> Logistic Execution </li>
-    <li> Transportation </li>
-  </ul>
-
-</ul>
-
-
-<p> SALES DATA  </p>
-<table>
-  <tr>
-    <th>Order (ULID)</th>
-    <th>Date</th>
-    <th>Pricing</th>
-    <th>Quoted (Including GST)</th>
-    <th>Completed By</th>
-    <th>Coolie CUT</th>
-    <th>PCPL Cut</th>
-    <th> STATION </th>
-     <th>Discount Applied</th>
-    <th>Coupon Applied</th>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234572</td>
-    <td>2024-06-15</td>
-    <td>150</td>
-    <td>177</td>
-    <td>Rahul</td>
-    <td>142.50</td>
-    <td>7.50</td>
-     <td>BANARAS STATION</td>
-     <td>10%</td>
-    <td>SUMMER10</td>
-  </tr>
-
-  <tr>
-    <td>0123456789abcdef01234573</td>
-    <td>2024-07-20</td>
-    <td>200</td>
-    <td>236</td>
-    <td>Ankit</td>
-    <td>190.00</td>
-    <td>10.00</td>
-     <td>BANARAS STATION</td>
-        <td>5%</td>
-    <td>WELCOME5</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234574</td>
-    <td>2024-08-05</td>
-    <td>250</td>
-    <td>295</td>
-    <td>Rajeev</td>
-    <td>237.50</td>
-    <td>12.50</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234575</td>
-    <td>2024-09-10</td>
-    <td>100</td>
-    <td>118</td>
-    <td>Naveen</td>
-    <td>95.00</td>
-    <td>5.00</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234576</td>
-    <td>2024-10-15</td>
-    <td>175</td>
-    <td>207</td>
-    <td>Ashish</td>
-    <td>166.25</td>
-    <td>8.75</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234577</td>
-    <td>2024-06-25</td>
-    <td>225</td>
-    <td>267</td>
-    <td>Siddharth</td>
-    <td>213.75</td>
-    <td>11.25</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234578</td>
-    <td>2024-07-05</td>
-    <td>125</td>
-    <td>147</td>
-    <td>Abhishek</td>
-    <td>118.75</td>
-    <td>6.25</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234579</td>
-    <td>2024-08-20</td>
-    <td>150</td>
-    <td>177</td>
-    <td>Rohan</td>
-    <td>142.50</td>
-    <td>7.50</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234580</td>
-    <td>2024-09-25</td>
-    <td>275</td>
-    <td>323</td>
-    <td>Anuj</td>
-    <td>261.25</td>
-    <td>13.75</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>0123456789abcdef01234581</td>
-    <td>2024-10-10</td>
-    <td>130</td>
-    <td>154</td>
-    <td>Gautam</td>
-    <td>123.50</td>
-    <td>6.50</td>
-     <td>BANARAS STATION</td>
-      <td>No Discount</td>
-    <td>N/A</td>
-  </tr>
-</table>
-<p id="end">
- 
-</p>
+      <!-- ROW THREE CHARTS-->
+      <div id="data-chartOne" class="grid__stagger">
+        <h3>Sales figures by month:</h3>
+        <canvas id="line-chart"></canvas>
+      </div>
+      <div id="data-chartTwo" class="grid__stagger">
+        <h3>Product categories:</h3>
+        <canvas id="doughnut"></canvas>
+      </div>
+      <div id="data-chartThree" class="grid__stagger">
+        <h3>Product categories:</h3>
+        <canvas id="polar-area-chart"></canvas>
+      </div>
+    </div>
+    <div class="addMoreChartsBtn">
+      <i class="fa-solid fa-circle-plus"></i>
+    </div>
+  </main>
+</div>
 <!-- partial -->
-  
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2'></script><script  src="./script.js"></script>
+
 </body>
 </html>
