@@ -1,0 +1,15 @@
+body {background-color: rgb(108,136,207)}
+
+h1 {text-align:center; color: rgb (15,49,137);}
+
+table, td, th {border: 2px solid blue}
+table {border-collapse:collapse}
+
+#SAP {color:white;text-align:left}
+body {font-family:courier}
+
+a {color:purple; font-family: "Tahoma"}
+
+.module {font-family: "arial" }
+
+#end {font-family: "Helvetica" }
